@@ -24,14 +24,14 @@ public class GenericDao<T> implements Serializable{
 		return entityManager.merge(entidade);
 	}
 	
-	public List<T> listarTodos(String tabela){
-		StringBuilder sql = new StringBuilder();
-		sql.append("from ").append(tabela);
+	public List<T> listarTodos(StringBuilder sql){
 		Query query = entityManager.createQuery(sql.toString());
 		return query.getResultList();
 		
 	}
-	
+	public void deletar(String sql) {
+		entityManager.createQuery(sql).executeUpdate();
+	}
 }
 
 

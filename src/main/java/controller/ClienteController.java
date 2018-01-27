@@ -32,18 +32,33 @@ public class ClienteController implements Serializable{
 	}
 	
 	public String submit() {
-		clienteDao.salvar(clienteModel);
+		if(clienteModel.getId() != null) {
+			clienteDao.atualizar(clienteModel);
+			
+		}else {
+			clienteDao.salvar(clienteModel);
+			System.out.println("Id cliente: "+clienteModel.getId() );
+		}
 		clienteModel = new ClienteModel();
 		return "";
 	}
 	public List<ClienteModel> listar(){
-		clienteDao.listarTodos("cliente_model").forEach(item -> {
-			System.out.println(item.getNome());
-		});
-		return clienteDao.listarTodos("cliente_model");
+		return clienteDao.listarTodos(new StringBuilder("from cliente_model"));
 	}
-	public ClienteModel atualizar() {
-		return clienteDao.atualizar(clienteModel);
+	public String atualizar() {
+
+		return "index";
+	}
+	
+	public String editar(ClienteModel model) {
+		this.clienteModel = model;
+		return "index";
+	}
+	public String deletarItem(ClienteModel model) {
+		String sql ="DELETE from cliente_model where id="+model.getId();
+		clienteDao.deletar(sql);
+		//System.out.println("Deletar item :"+ model.getNome());
+		return "index";
 	}
 }
 

@@ -11,15 +11,15 @@ Muito bem!
 <h:form>
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Id: " />
-			<h:inputText value="#{clienteController.clienteModel.id}" />
+			<h:inputText  value="#{clienteController.clienteModel.id}" />
 			<h:outputLabel value="Nome: " />
 			<h:inputText value="#{clienteController.clienteModel.nome}" />
 			<h:outputLabel value="CPF: " />
 			<h:inputText value="#{clienteController.clienteModel.cpf}" />
 			<h:outputLabel value="Idade: " />
 			<h:inputText value="#{clienteController.clienteModel.idade}" />
-			<h:outputLabel />
 			<h:commandButton action="#{clienteController.submit()}" value="Enviar" />
+			<h:outputLabel />
 		</h:panelGrid>
 	</h:form>
 <h:dataTable value="#{clienteController.listar()}" var="lista">
@@ -38,6 +38,13 @@ Muito bem!
 	<h:column>
 	<f:facet name="header">Idade: </f:facet> 
 	#{lista.idade}
+	</h:column>
+	<h:column>
+	<h:form>
+		<f:facet name="header"></f:facet>
+		<h:commandButton action="#{clienteController.deletarItem(lista)}" value="Apagar" />
+		<h:commandButton action="#{clienteController.editar(lista)}" value="Editar" />
+		</h:form>
 	</h:column>
 </h:dataTable>
 </h:body>
