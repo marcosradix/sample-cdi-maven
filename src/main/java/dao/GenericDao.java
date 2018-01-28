@@ -17,7 +17,8 @@ public class GenericDao<T> implements Serializable{
 	public GenericDao() {}
 
 	public void salvar(T entidade) {
-		entityManager.persist(entidade);
+		entityManager.merge(entidade);
+		// apenas salva, diferente do merge entityManager.persist(entidade);
 	}
 	
 	public T atualizar(T entidade) {

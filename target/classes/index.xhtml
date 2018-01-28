@@ -22,7 +22,7 @@ Muito bem!
 			<h:outputLabel value="Idade: " />
 			<h:inputText value="#{clienteController.clienteModel.idade}" />
 			<h:commandButton action="#{clienteController.submit()}" value="Submeter" />
-			<h:outputLabel />
+			<h:commandButton actionListener="#{clienteController.limpar()}" value="Limpar" />
 		</h:panelGrid>
 	</h:form>
 <h:dataTable value="#{clienteController.listar()}" var="lista">
