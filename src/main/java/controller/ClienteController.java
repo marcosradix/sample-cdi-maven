@@ -32,13 +32,13 @@ public class ClienteController implements Serializable{
 	}
 	
 	public String submit() {
-		if(clienteModel.getId() != null) {
+		if(this.clienteModel.getId() != null) {
 			clienteDao.atualizar(clienteModel);
 			
 		}else {
 			clienteDao.salvar(clienteModel);
-			System.out.println("Id cliente: "+clienteModel.getId() );
 		}
+		
 		clienteModel = new ClienteModel();
 		return "";
 	}

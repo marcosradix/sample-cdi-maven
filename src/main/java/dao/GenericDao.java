@@ -9,7 +9,7 @@ import javax.persistence.Query;
 
 public class GenericDao<T> implements Serializable{
 	/**
-	 * 
+	 * T
 	 */
 	private static final long serialVersionUID = 7981415805043661774L;
 	@PersistenceContext(unitName= "sample-cdi-maven")
