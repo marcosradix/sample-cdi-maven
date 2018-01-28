@@ -7,18 +7,19 @@
 	<title>Minha página web</title>
 	<h:outputScript library="js" name="jquery-3.2.1.js"></h:outputScript>
 	<h:outputScript library="js" name="jquery.maskedinput.js"></h:outputScript>
+	<h:outputStylesheet library="css" name="style.css"/>
 </h:head>
 <h:body>
 Muito bem!
-<h:form>
+<h:form id="idForm">
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Id: " />
-			<h:inputText  styleClass="myid" value="#{clienteController.clienteModel.id}" >
+			<h:inputText   id="myid" value="#{clienteController.clienteModel.id}" >
 			</h:inputText>
 			<h:outputLabel value="Nome: " />
 			<h:inputText value="#{clienteController.clienteModel.nome}" />
 			<h:outputLabel value="CPF: " />
-			<h:inputText styleClass="cpf" value="#{clienteController.clienteModel.cpf}" />
+			<h:inputText id="cpf" value="#{clienteController.clienteModel.cpf}" />
 			<h:outputLabel value="Idade: " />
 			<h:inputText value="#{clienteController.clienteModel.idade}" />
 			<h:commandButton action="#{clienteController.submit()}" value="Submeter" />
